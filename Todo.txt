@@ -1,0 +1,12 @@
+Add death square
+Move ViewPort after teleporting
+Sound Effects
+Different Block Graphics
+Sort out speeds
+Time limit
+Draw current state down right hand side
+Size boxes based on screen size
+
+
+Level designer
+Level codes,  ie enter gloria to start level 2

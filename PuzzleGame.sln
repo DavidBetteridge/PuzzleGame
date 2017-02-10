@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleUI", "PuzzleUI\PuzzleUI.csproj", "{D38184FD-9CD3-4ABA-B6C0-CE7C22B96505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleLogic", "PuzzleLogic\PuzzleLogic.csproj", "{EC777CD1-B538-41B5-A508-E94519187CF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17ADE69A-EB26-4ABB-A2EE-EEFF0CE02564}"
+	ProjectSection(SolutionItems) = preProject
+		Todo.txt = Todo.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleLevelDesigner", "PuzzleLevelDesigner\PuzzleLevelDesigner.csproj", "{DAE0D2BF-85F0-41C2-BBF2-9F6E091E4255}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D38184FD-9CD3-4ABA-B6C0-CE7C22B96505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38184FD-9CD3-4ABA-B6C0-CE7C22B96505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38184FD-9CD3-4ABA-B6C0-CE7C22B96505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38184FD-9CD3-4ABA-B6C0-CE7C22B96505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC777CD1-B538-41B5-A508-E94519187CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC777CD1-B538-41B5-A508-E94519187CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC777CD1-B538-41B5-A508-E94519187CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC777CD1-B538-41B5-A508-E94519187CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE0D2BF-85F0-41C2-BBF2-9F6E091E4255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE0D2BF-85F0-41C2-BBF2-9F6E091E4255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE0D2BF-85F0-41C2-BBF2-9F6E091E4255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE0D2BF-85F0-41C2-BBF2-9F6E091E4255}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

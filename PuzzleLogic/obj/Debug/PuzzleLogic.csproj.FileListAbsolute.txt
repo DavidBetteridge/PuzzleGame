@@ -1,0 +1,8 @@
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\bin\Debug\Puzzle.pdb
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\obj\Debug\PuzzleLogic.csprojResolveAssemblyReference.cache
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\obj\Debug\Puzzle.Properties.Resources.resources
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\obj\Debug\PuzzleLogic.csproj.GenerateResource.Cache
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\obj\Debug\Puzzle.pdb
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\bin\Debug\Puzzle.dll.config
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\bin\Debug\Puzzle.dll
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLogic\obj\Debug\Puzzle.dll
