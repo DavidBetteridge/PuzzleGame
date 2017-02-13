@@ -14,7 +14,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Board Board;
+        private Board Board;
 
         const int ViewPortWidth = 20;
         const int ViewPortHeight = 14;
@@ -45,25 +45,24 @@ namespace WpfApplication1
         // For playing sounds
         private readonly SoundManager SoundManager;
 
-        private readonly System.Windows.Threading.DispatcherTimer dispatcherTimer;
+        private System.Windows.Threading.DispatcherTimer dispatcherTimer;
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
 
             // Load Assets
-            this.sweetImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\sweet.bmp", UriKind.Absolute));
-            this.wallImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\wall.bmp", UriKind.Absolute));
-            this.manImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\man.jpg", UriKind.Absolute));
-            this.evilImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\evil.jpg", UriKind.Absolute));
-            this.teleportImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\teleport.jpeg", UriKind.Absolute));
-            this.blockLeftImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\LeftBlock.bmp", UriKind.Absolute));
-            this.blockRightImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\RightBlock.bmp", UriKind.Absolute));
-            this.blockUpImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\UpBlock.bmp", UriKind.Absolute));
-            this.blockDownImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\DownBlock.bmp", UriKind.Absolute));
-            this.exitImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\exit.bmp", UriKind.Absolute));
-            this.furnitureImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\assets\FixedBlock.bmp", UriKind.Absolute));
-
-            this.BackgroundImg = new BitmapImage(new Uri(@"C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\Background.jpg", UriKind.Absolute));
+            this.sweetImg = new BitmapImage(new Uri(@"assets\sweet.bmp", UriKind.Relative));
+            this.wallImg = new BitmapImage(new Uri(@"assets\wall.bmp", UriKind.Relative));
+            this.manImg = new BitmapImage(new Uri(@"assets\man.jpg", UriKind.Relative));
+            this.evilImg = new BitmapImage(new Uri(@"assets\evil.jpg", UriKind.Relative));
+            this.teleportImg = new BitmapImage(new Uri(@"assets\teleport.jpeg", UriKind.Relative));
+            this.blockLeftImg = new BitmapImage(new Uri(@"assets\LeftBlock.bmp", UriKind.Relative));
+            this.blockRightImg = new BitmapImage(new Uri(@"assets\RightBlock.bmp", UriKind.Relative));
+            this.blockUpImg = new BitmapImage(new Uri(@"assets\UpBlock.bmp", UriKind.Relative));
+            this.blockDownImg = new BitmapImage(new Uri(@"assets\DownBlock.bmp", UriKind.Relative));
+            this.exitImg = new BitmapImage(new Uri(@"assets\exit.bmp", UriKind.Relative));
+            this.furnitureImg = new BitmapImage(new Uri(@"assets\FixedBlock.bmp", UriKind.Relative));
+            this.BackgroundImg = new BitmapImage(new Uri(@"Background.jpg", UriKind.Relative));
 
             // Full screen mode
             WindowState = WindowState.Maximized;
@@ -72,28 +71,32 @@ namespace WpfApplication1
             // Setup the sounds
             this.SoundManager = new SoundManager();
 
+            this.KeyDown += MainWindow_KeyDown;
+
+            NewGame();
+        }
+
+        private void NewGame()
+        {
             var levelManager = new LevelManager();
-            var tempBoard = new SetupBoard().NewGame();
-         //   levelManager.SaveLevel(tempBoard, @"c:\temp\level.bin");
             this.Board = levelManager.LoadLevel(@"c:\temp\level.bin");
 
             //Setup a new game
-            //  this.Board = new SetupBoard().NewGame();
             this.Board.OnSweetEaten += OnSweetEaten;
             this.Board.OnPlayerTeleported += OnTeleport;
-            //   this.Board.OnPlayerKilled += OnGameOver;
 
             this.dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+
+            var frm = new Info();
+            frm.ShowDialog();
+
+            this.XOffset = 0;
+            this.YOffset = 0;
+
             dispatcherTimer.Start();
-
-            this.KeyDown += MainWindow_KeyDown;
-
             this.Board.StartGame(); //start the clock
-
-
-
         }
 
         private void OnTeleport(object sender, EventArgs e)
@@ -202,6 +205,8 @@ namespace WpfApplication1
                 default:
                     break;
             }
+
+            NewGame();
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -243,7 +248,7 @@ namespace WpfApplication1
             // Background
             drawingContext.DrawRectangle(Brushes.White, null, new Rect(RenderSize));
             drawingContext.DrawImage(BackgroundImg, new Rect(backX, backY, totalWidth, totalHeight));
-            //MyBackgroundBrush.Viewbox = new Rect(this.Left, this.Top, this.Width - 400, this.Height);
+
             // Details in the RHS
             drawingContext.DrawRectangle(Brushes.AliceBlue, null, new Rect(r, 0, this.Width - r, this.Height));
             DrawText(drawingContext, $"Level: One", 0, 100);
@@ -358,27 +363,6 @@ namespace WpfApplication1
                     }
                 }
             }
-
-            //for (int x = 0; x < ViewPortWidth; x++)
-            //{
-            //    var xb = x + XOffset;
-
-            //    var previousPoint = new Point(x * (cellWidth + wallWidth), 1);
-            //    var newPoint = new Point(x * (cellWidth + wallWidth), this.Height);
-            //    drawingContext.DrawLine(pen, previousPoint, newPoint);
-            //}
-
-
-            //for (int y = 0; y < ViewPortHeight; y++)
-            //{
-            //    var previousPoint = new Point(1, y * (cellHeight + wallHeight));
-            //    var newPoint = new Point(this.Width, y * (cellHeight + wallHeight));
-            //    drawingContext.DrawLine(pen, previousPoint, newPoint);
-            //}
-
-
         }
-
-
     }
 }

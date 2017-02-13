@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PuzzleLevelDesigner
 {
@@ -31,7 +22,6 @@ namespace PuzzleLevelDesigner
             InitializeComponent();
 
         }
-
         public bool TopWall
         {
             get { return this.topWall.Visibility == Visibility.Hidden; }
@@ -58,9 +48,6 @@ namespace PuzzleLevelDesigner
 
         public ImageSource ImageSource
         {
-            //get { return (BitmapImage)GetValue(ImageSourceProperty); }
-            //set { SetValue(ImageSourceProperty, value); }
-
             get { return this.img.Source; }
             set { this.img.Source = value; }
         }
@@ -74,9 +61,5 @@ namespace PuzzleLevelDesigner
         {
             this.RightClicked?.Invoke(this, e);
         }
-
-        //public static readonly DependencyProperty ImageSourceProperty =
-        //        DependencyProperty.Register("ImageSource", typeof(BitmapImage),
-        //            typeof(MapCell), new PropertyMetadata(""));
     }
 }

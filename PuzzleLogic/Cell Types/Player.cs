@@ -37,8 +37,10 @@ namespace Puzzle
             if (slidingBlock != null && slidingBlock.Direction != direction)
             {
                 // We can enter this cell but only if we can slide the block out of the cell
+                var nextCell = board.GetAdjacentCell(newLocation.Contents.X, newLocation.Y, direction);
+                if (nextCell == null) return false;
                 return slidingBlock.CanEnterCell(board,
-                                                 board.GetAdjacentCell(newLocation.Contents.X, newLocation.Y, direction),
+                                                 nextCell,
                                                  direction);
             }
 

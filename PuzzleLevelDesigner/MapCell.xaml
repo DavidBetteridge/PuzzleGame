@@ -10,13 +10,12 @@
 
     <Border BorderThickness="1" >
         <DockPanel>
-            <Image x:Name="topWall" Source="C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLevelDesigner\Assets\wall.bmp" Height="5"  Stretch="Fill" DockPanel.Dock="Top" ></Image>
-            <Image x:Name="bottomWall" Source="C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLevelDesigner\Assets\wall.bmp" Height="5"  Stretch="Fill" DockPanel.Dock="Bottom" ></Image>
-            <Image x:Name="leftWall" Source="C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLevelDesigner\Assets\wall.bmp" Width="5"  Stretch="Fill" DockPanel.Dock="Left" ></Image>
-            <Image x:Name="rightWall" Source="C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleLevelDesigner\Assets\wall.bmp" Width="5"  Stretch="Fill" DockPanel.Dock="Right" ></Image>
+            <Image x:Name="topWall" Source="Assets\wall.bmp" Height="5"  Stretch="Fill" DockPanel.Dock="Top" ></Image>
+            <Image x:Name="bottomWall" Source="Assets\wall.bmp" Height="5"  Stretch="Fill" DockPanel.Dock="Bottom" ></Image>
+            <Image x:Name="leftWall" Source="Assets\wall.bmp" Width="5"  Stretch="Fill" DockPanel.Dock="Left" ></Image>
+            <Image x:Name="rightWall" Source="Assets\wall.bmp" Width="5"  Stretch="Fill" DockPanel.Dock="Right" ></Image>
             <Image x:Name="img" Source="{Binding Path=ImageSource}" Stretch="Fill" ></Image>
         </DockPanel>
-
 
         <Border.Style>
             <Style TargetType="{x:Type Border}">
