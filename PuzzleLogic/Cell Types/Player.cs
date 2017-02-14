@@ -27,7 +27,7 @@ namespace Puzzle
                 return board.SweetsRemaining == 0; ;
             }
 
-            if (newLocation.Contents as Monster != null)
+            if (newLocation.Contents as Monster != null || newLocation.Contents as Death != null)
             {
                 // We can enter this cell,  but it's not going to end well!
                 return true;
@@ -90,6 +90,16 @@ namespace Puzzle
                 newLocation.Contents = this;
 
                 return GameState.KilledByMonster;
+            }
+
+            if (newLocation.Contents as Death != null)
+            {
+                // Cell contains the death
+                this.X = newLocation.X;
+                this.Y = newLocation.Y;
+                newLocation.Contents = this;
+
+                return GameState.KilledByDeath;
             }
 
             if (newLocation.Contents as Sweet != null)

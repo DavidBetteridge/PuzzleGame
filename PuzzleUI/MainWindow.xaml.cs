@@ -40,6 +40,7 @@ namespace WpfApplication1
         private readonly BitmapImage blockDownImg;
         private readonly BitmapImage exitImg;
         private readonly BitmapImage furnitureImg;
+        private readonly BitmapImage deathImg;
         private readonly BitmapImage BackgroundImg;
 
         // For playing sounds
@@ -62,6 +63,7 @@ namespace WpfApplication1
             this.blockDownImg = new BitmapImage(new Uri(@"assets\DownBlock.bmp", UriKind.Relative));
             this.exitImg = new BitmapImage(new Uri(@"assets\exit.bmp", UriKind.Relative));
             this.furnitureImg = new BitmapImage(new Uri(@"assets\FixedBlock.bmp", UriKind.Relative));
+            this.deathImg = new BitmapImage(new Uri(@"assets\Death.bmp", UriKind.Relative));
             this.BackgroundImg = new BitmapImage(new Uri(@"Background.jpg", UriKind.Relative));
 
             // Full screen mode
@@ -72,6 +74,9 @@ namespace WpfApplication1
             this.SoundManager = new SoundManager();
 
             this.KeyDown += MainWindow_KeyDown;
+            this.dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
 
             NewGame();
         }
@@ -85,9 +90,8 @@ namespace WpfApplication1
             this.Board.OnSweetEaten += OnSweetEaten;
             this.Board.OnPlayerTeleported += OnTeleport;
 
-            this.dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += dispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            // Stop the clock
+            dispatcherTimer.Stop();
 
             var frm = new Info();
             frm.ShowDialog();
@@ -124,6 +128,8 @@ namespace WpfApplication1
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Q) NewGame();  //Player has quit
+
             var direction = KeyToDirection(e.Key);
             if (direction == Direction.None) return;
 
@@ -195,6 +201,9 @@ namespace WpfApplication1
                     break;
                 case GameState.KilledByBlock:
                     MessageBox.Show("You were killed by a sliding block", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
+                    break;
+                case GameState.KilledByDeath:
+                    MessageBox.Show("You were killed by walking into death", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
                     break;
                 case GameState.Won:
                     MessageBox.Show("You won", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -321,6 +330,11 @@ namespace WpfApplication1
                     if (cellToDraw.Contents as Sweet != null)
                     {
                         drawingContext.DrawImage(sweetImg, new Rect(innerTopLeft, innerBottomRight));
+                    }
+
+                    if (cellToDraw.Contents as Death != null)
+                    {
+                        drawingContext.DrawImage(deathImg, new Rect(innerTopLeft, innerBottomRight));
                     }
 
                     if (cellToDraw.Contents as SlidingBlock != null)

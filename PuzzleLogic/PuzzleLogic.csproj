@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell Types\Exit.cs" />
+    <Compile Include="Cell Types\Death.cs" />
     <Compile Include="Cell Types\Furniture.cs" />
     <Compile Include="Cell Types\SlidingBlock.cs" />
     <Compile Include="Board.cs" />

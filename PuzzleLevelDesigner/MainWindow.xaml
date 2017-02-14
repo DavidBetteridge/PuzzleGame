@@ -58,8 +58,8 @@
                 </Style>
             </Grid.Resources>
 
-            <RadioButton Grid.Row="0" Grid.Column="0" x:Name="man" Content="../Assets/man.jpg" Style="{StaticResource Flag}" BorderBrush="Red" Width="40" Height="40"/>
-            <RadioButton Grid.Row="0" Grid.Column="1" x:Name="evil" Content="../Assets/evil.jpg" Style="{StaticResource Flag}" BorderBrush="Red" Width="40" Height="40"/>
+            <RadioButton Grid.Row="0" Grid.Column="0" x:Name="man" Content="../Assets/man.jpg" Style="{StaticResource Flag}" BorderBrush="Yellow" Width="40" Height="40"/>
+            <RadioButton Grid.Row="0" Grid.Column="1" x:Name="evil" Content="../Assets/evil.jpg" Style="{StaticResource Flag}" BorderBrush="Yellow" Width="40" Height="40"/>
             
             <RadioButton Grid.Row="1" Grid.Column="0" x:Name="teleport" Content="../Assets/teleport.jpeg" Style="{StaticResource Flag}" BorderBrush="Orange" Width="40" Height="40"/>
             <RadioButton Grid.Row="1" Grid.Column="1" x:Name="exit" Content="../Assets/exit.bmp" Style="{StaticResource Flag}" BorderBrush="Orange" Width="40" Height="40"/>
@@ -70,6 +70,7 @@
             <RadioButton Grid.Row="3" Grid.Column="1" x:Name="rightblock" Content="../Assets/rightblock.bmp" Style="{StaticResource Flag}" BorderBrush="Green" Width="40" Height="40"/>
             <RadioButton Grid.Row="4" Grid.Column="0" x:Name="upblock" Content="../Assets/upblock.bmp" Style="{StaticResource Flag}" BorderBrush="Green" Width="40" Height="40"/>
             <RadioButton Grid.Row="4" Grid.Column="1" x:Name="downblock" Content="../Assets/downblock.bmp" Style="{StaticResource Flag}" BorderBrush="Green" Width="40" Height="40"/>
+            <RadioButton Grid.Row="5" Grid.Column="0" x:Name="death" Content="../Assets/death.bmp" Style="{StaticResource Flag}" BorderBrush="Red" Width="40" Height="40"/>
 
             <RadioButton Grid.Row="6" Grid.Column="0" x:Name="addLeftWall" Content="../Assets/wallL.bmp" Style="{StaticResource Flag}" BorderBrush="Blue" Width="40" Height="40"/>
             <RadioButton Grid.Row="6" Grid.Column="1" x:Name="removeLeftWall" Content="../Assets/noWallL.bmp" Style="{StaticResource Flag}" BorderBrush="Blue" Width="40" Height="40"/>

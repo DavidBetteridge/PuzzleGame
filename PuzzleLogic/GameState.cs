@@ -7,5 +7,6 @@
         KilledByBlock = 2,
         Won = 3,
         Timeout = 4,
+        KilledByDeath = 5
     }
 }

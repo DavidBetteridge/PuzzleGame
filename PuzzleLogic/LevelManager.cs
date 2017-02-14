@@ -76,6 +76,9 @@ namespace Puzzle
                 case 7:
                     board.AddSweet(cell.X, cell.Y);
                     break;
+                case 8:
+                    board.AddDeath(cell.X, cell.Y);
+                    break;
                 default:
                     break;
             }
@@ -101,6 +104,7 @@ namespace Puzzle
             if (teleport != null) content = 5;
             if (slidingBlock != null) content = 6;
             if (cell.Contents as Sweet != null) content = 7;
+            if (cell.Contents as Death != null) content = 8;
 
             fs.WriteByte((byte)((walls << 4) | content));
 

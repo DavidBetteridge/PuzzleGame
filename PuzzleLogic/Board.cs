@@ -245,6 +245,12 @@ namespace Puzzle
             return GameState.InPlay;
         }
 
+        public void AddDeath(int x, int y)
+        {
+            this.ClearCell(x, y);
+            this.Cells[x, y].Contents = new Death() { X = x, Y = y }; 
+        }
+
         public Cell GetAdjacentCell(int x, int y, Direction direction)
         {
             switch (direction)

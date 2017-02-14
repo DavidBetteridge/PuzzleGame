@@ -31,3 +31,4 @@ C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\bin\Debug\assets\
 C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\bin\Debug\assets\UpBlock.bmp
 C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\bin\Debug\assets\wall.bmp
 C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\bin\Debug\background.jpg
+C:\Users\david.betteridge\Documents\GitHub\PuzzleGame\PuzzleUI\bin\Debug\assets\Death.bmp

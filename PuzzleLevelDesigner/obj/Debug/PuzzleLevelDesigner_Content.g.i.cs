@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/wallb.bmp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/wallr.bmp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/wallt.bmp")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/death.bmp")]
 
 

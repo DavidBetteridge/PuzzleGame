@@ -24,6 +24,7 @@ namespace PuzzleLevelDesigner
         private readonly BitmapImage exitImg;
         private readonly BitmapImage furnitureImg;
         private readonly BitmapImage emptyImg;
+        private readonly BitmapImage deathImg;
 
         // The board we are currently editting
         private readonly Board board;
@@ -56,6 +57,7 @@ namespace PuzzleLevelDesigner
             this.exitImg = new BitmapImage(new Uri(@"assets\exit.bmp", UriKind.Relative));
             this.furnitureImg = new BitmapImage(new Uri(@"assets\FixedBlock.bmp", UriKind.Relative));
             this.emptyImg = new BitmapImage(new Uri(@"assets\Empty.bmp", UriKind.Relative));
+            this.deathImg = new BitmapImage(new Uri(@"assets\Death.bmp", UriKind.Relative));
 
             this.board = new LevelManager().LoadLevel(this.filename);
             map.Rows = board.Width;
@@ -89,6 +91,7 @@ namespace PuzzleLevelDesigner
                     if (cell.Contents as Sweet != null) mapCell.ImageSource = this.sweetImg;
                     if (cell.Contents as Exit != null) mapCell.ImageSource = this.exitImg;
                     if (cell.Contents as Furniture != null) mapCell.ImageSource = this.furnitureImg;
+                    if (cell.Contents as Death != null) mapCell.ImageSource = this.deathImg;
 
                     var block = cell.Contents as SlidingBlock;
                     if (block != null)
@@ -179,6 +182,12 @@ namespace PuzzleLevelDesigner
                         //Unlock the pallet so that all controls can now be used
                         LockPallet(false);
                     }
+                }
+
+                if (this.death.IsChecked == true)
+                {
+                    this.board.AddDeath(cell.X, cell.Y);
+                    mc.ImageSource = deathImg;
                 }
 
                 if (this.sweet.IsChecked == true)
